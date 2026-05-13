@@ -15,6 +15,7 @@ class Gopdf < Formula
   depends_on "pkg-config" => :build
   depends_on "mupdf"
   depends_on "sdl3"
+  depends_on "sdl2"
 
   def install
     pkgconfig = buildpath/"pkgconfig"
