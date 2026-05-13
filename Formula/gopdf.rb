@@ -2,7 +2,7 @@ class Gopdf < Formula
   desc "MuPDF-backend PDF viewer written in Go with Lua configuration"
   homepage "https://github.com/Aethar01/gopdf"
   url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.11.tar.gz"
-  sha256 "705bcdcdf9e8afc6ca9dba5e3ed6e1e10e22f144308508625c0ef9f35820f5c8"
+  sha256 "bb3b4bd974e8ccd6a15742ddf9fa6ae7a74d752d5c899fe50e10800544901227"
   license "AGPL-3.0-only"
   head "https://github.com/Aethar01/gopdf.git", branch: "main"
 
@@ -37,6 +37,6 @@ class Gopdf < Formula
   end
 
   test do
-    assert_match(/\A\d+\.\d+\.\d+\s*\z/, shell_output("#{bin}/gopdf -v"))
+    system "go", "test", "./..."
   end
 end
