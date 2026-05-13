@@ -1,8 +1,8 @@
 class Gopdf < Formula
   desc "MuPDF-backend PDF viewer written in Go with Lua configuration"
   homepage "https://github.com/Aethar01/gopdf"
-  url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.10.tar.gz"
-  sha256 "523eebdd7ffcdc4431623735cb502b965ab4e0b743bc79ea66934745a4212e82"
+  url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.11.tar.gz"
+  sha256 "705bcdcdf9e8afc6ca9dba5e3ed6e1e10e22f144308508625c0ef9f35820f5c8"
   license "AGPL-3.0-only"
   head "https://github.com/Aethar01/gopdf.git", branch: "main"
 
