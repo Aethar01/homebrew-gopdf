@@ -1,8 +1,8 @@
 class Gopdf < Formula
   desc "MuPDF-backend PDF viewer written in Go with Lua configuration"
   homepage "https://github.com/Aethar01/gopdf"
-  url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.12.tar.gz"
-  sha256 "ce672a497408582564ed13b9c6ae119c4cebabece5a6b2c11890ae9807a3680b"
+  url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.13.tar.gz"
+  sha256 "e59a3e8f5f8433eb3f40454260024f1662ae691a0becb3b363e0922a518f543d"
   license "AGPL-3.0-only"
   head "https://github.com/Aethar01/gopdf.git", branch: "main"
 
@@ -15,7 +15,6 @@ class Gopdf < Formula
   depends_on "pkg-config" => :build
   depends_on "mupdf"
   depends_on "sdl3"
-  depends_on "sdl2"
 
   def install
     pkgconfig = buildpath/"pkgconfig"
