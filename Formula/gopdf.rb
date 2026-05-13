@@ -1,8 +1,8 @@
 class Gopdf < Formula
   desc "MuPDF-backend PDF viewer written in Go with Lua configuration"
   homepage "https://github.com/Aethar01/gopdf"
-  url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.13.tar.gz"
-  sha256 "e59a3e8f5f8433eb3f40454260024f1662ae691a0becb3b363e0922a518f543d"
+  url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.14.tar.gz"
+  sha256 "57d60e0da0c60bd2fdeb81c13705854ae618c511923ecd5d909e73df35d11049"
   license "AGPL-3.0-only"
   head "https://github.com/Aethar01/gopdf.git", branch: "main"
 
@@ -15,7 +15,6 @@ class Gopdf < Formula
   depends_on "pkg-config" => :build
   depends_on "mupdf"
   depends_on "sdl3"
-  depends_on "sdl2"
 
   def install
     pkgconfig = buildpath/"pkgconfig"
@@ -33,6 +32,7 @@ class Gopdf < Formula
       Cflags: -I${includedir}
     EOS
     ENV.prepend_path "PKG_CONFIG_PATH", pkgconfig
+    ENV.prepend_path "DYLD_LIBRARY_PATH", "#{Formula["sdl3"].opt_prefix}/lib"
 
     system "go", "test", "./..."
     system "go", "build", *std_go_args
