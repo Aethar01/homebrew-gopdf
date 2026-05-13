@@ -33,10 +33,11 @@ class Gopdf < Formula
     EOS
     ENV.prepend_path "PKG_CONFIG_PATH", pkgconfig
 
+    system "go", "test", "./..."
     system "go", "build", *std_go_args
   end
 
   test do
-    system "go", "test", "./..."
+    assert_match(/\A\d+\.\d+\.\d+\s*\z/, shell_output("#{bin}/gopdf -v"))
   end
 end
