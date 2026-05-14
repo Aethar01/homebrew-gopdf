@@ -1,8 +1,8 @@
 class Gopdf < Formula
   desc "MuPDF-backend PDF viewer written in Go with Lua configuration"
   homepage "https://github.com/Aethar01/gopdf"
-  url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.14.tar.gz"
-  sha256 "57d60e0da0c60bd2fdeb81c13705854ae618c511923ecd5d909e73df35d11049"
+  url "https://github.com/Aethar01/gopdf/archive/refs/tags/0.1.17.tar.gz"
+  sha256 "3d3be61898f716c91d0f47168a82d0f906cd9c88461fca001277ce00d3775ae5"
   license "AGPL-3.0-only"
   head "https://github.com/Aethar01/gopdf.git", branch: "main"
 
@@ -24,7 +24,6 @@ class Gopdf < Formula
       exec_prefix=${prefix}
       libdir=${exec_prefix}/lib
       includedir=${prefix}/include
-
       Name: mupdf
       Description: MuPDF PDF rendering library
       Version: #{Formula["mupdf"].version}
@@ -32,10 +31,10 @@ class Gopdf < Formula
       Cflags: -I${includedir}
     EOS
     ENV.prepend_path "PKG_CONFIG_PATH", pkgconfig
-    ENV.prepend_path "DYLD_LIBRARY_PATH", "#{Formula["sdl3"].opt_prefix}/lib"
 
-    system "go", "test", "./..."
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(
+      ldflags: "-s -w -X main.version=#{version}"
+    )
   end
 
   test do
