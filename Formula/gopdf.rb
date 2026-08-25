@@ -8,7 +8,7 @@ class Gopdf < Formula
   head "https://github.com/Aethar01/gopdf.git", branch: "main"
 
   livecheck do
-    url "https://github.com/Aethar01/gopdf.git"
+    url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
@@ -26,14 +26,14 @@ class Gopdf < Formula
                 "#cgo pkg-config: mupdf",
                 "#cgo !darwin pkg-config: mupdf\n#cgo darwin LDFLAGS: -lmupdf -lmupdf-third -lm"
 
-      ENV.append "CGO_CFLAGS", "-I#{Formula["mupdf"].opt_include}"
-      ENV.append "CGO_LDFLAGS", "-L#{Formula["mupdf"].opt_lib}"
+      ENV.append "CGO_CFLAGS", "-I#{formula_opt_include("mupdf")}"
+      ENV.append "CGO_LDFLAGS", "-L#{formula_opt_lib("mupdf")}"
     end
 
     ENV["CGO_ENABLED"] = "1"
 
     system "go", "build", *std_go_args(
-      ldflags: "-s -w -X main.version=#{version}"
+      ldflags: "-s -w -X main.version=#{version}",
     )
   end
 
