@@ -1,18 +1,29 @@
-# Aethar01 Gopdf
+# Aethar01 GoPDF
 
-## How do I install these formulae?
+## Installation
 
-`brew install aethar01/gopdf/<formula>`
+Install GoPDF as a Homebrew cask:
 
-Or `brew tap aethar01/gopdf` and then `brew install <formula>`.
+```sh
+brew install --cask aethar01/gopdf/gopdf
+```
 
-Or, in a `brew bundle` `Brewfile`:
+Or tap the repository first:
+
+```sh
+brew tap aethar01/gopdf
+brew install --cask gopdf
+```
+
+In a `Brewfile`:
 
 ```ruby
 tap "aethar01/gopdf"
-brew "<formula>"
+cask "gopdf"
 ```
+
+The cask installs `GoPDF.app` into `/Applications`.
 
 ## Documentation
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+Run `brew help`, `man brew`, or see Homebrew's documentation at https://docs.brew.sh.
