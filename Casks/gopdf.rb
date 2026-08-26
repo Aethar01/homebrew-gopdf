@@ -1,9 +1,9 @@
 cask "gopdf" do
   arch arm: "arm64", intel: "amd64"
 
-  version "0.3.6"
-  sha256 arm:   "e534f4bebc58faaa45933ecbb1b5b4805f1a87f0471e1d7279f12d80474da799",
-         intel: "c82f33aa34df83053d7e3a101e0ee5046362c2156bc45ac029cab698d915915d"
+  version "0.4.0"
+  sha256 arm:   "536037d9694813ab5fef81ea7a40f091a20727f434067d50a4a3b9cc4d40a8f8",
+         intel: "21a513ac816d348fc37c1519c52df3b1fff9113363e6fce1ce73b4905519f8e9"
 
   url "https://github.com/Aethar01/gopdf/releases/download/#{version}/gopdf-#{version}-darwin-#{arch}.dmg"
   name "GoPDF"
